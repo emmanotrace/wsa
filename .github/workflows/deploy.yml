@@ -22,9 +22,13 @@ jobs:
           ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
             cd /home/codekrew/public_html &&
             git pull origin main &&
-            for user in mugerwa musiimen mutakaba nantongo ogwal sekanjak ssebyala tendo; do
-              cp -r codecrew/members/$user/. /home/$user/public_html/
-              chown -R $user:$user /home/$user/public_html
-            done &&
+            \cp -rf codecrew/members/mugerwa/. /home/mugerwa/public_html/ &&
+            \cp -rf codecrew/members/musimenta/. /home/musiimen/public_html/ &&
+            \cp -rf codecrew/members/mutakaala/. /home/mutakaba/public_html/ &&
+            \cp -rf codecrew/members/nantongo/. /home/nantongo/public_html/ &&
+            \cp -rf codecrew/members/ogwal/. /home/ogwal/public_html/ &&
+            \cp -rf codecrew/members/ssebyala/. /home/ssebyala/public_html/ &&
+            \cp -rf codecrew/members/ssekanjako/. /home/sekanjak/public_html/ &&
+            \cp -rf codecrew/members/tendo/. /home/tendo/public_html/ &&
             chown -R codekrew:codekrew /home/codekrew/public_html
           "
